@@ -51,49 +51,12 @@
 					<control type="grouplist" id="5001">
 						<include>WidgetGroupListCommon</include>
 						<pagecontrol>5010</pagecontrol>
-						<include content="WidgetListPoster">
-							<param name="content_path" value="plugin://plugin.video.pov/?name=32476&amp;iconImage=player.png&amp;mode=build_movie_list&amp;action=in_progress_movies"/>
-							<param name="widget_header" value="In Progress Movies"/>
-							<param name="widget_target" value="videos"/>
-							<param name="list_id" value="5100"/>
-						</include>
-						<include content="WidgetListPoster">
-							<param name="content_path" value="plugin://plugin.video.pov/?name=32481&amp;iconImage=in_progress_tvshow.png&amp;mode=build_tvshow_list&amp;action=in_progress_tvshows"/>
-							<param name="widget_header" value="In Progress TV Shows"/>
-							<param name="widget_target" value="videos"/>
-							<param name="list_id" value="5200"/>
-						</include>
-						<include content="WidgetListPoster">
-							<param name="content_path" value="plugin://plugin.video.pov/?name=Trending+Recent&apm;iconImage=trending.png&amp;mode=build_movie_list&amp;action=trakt_movies_trending_recent"/>
-							<param name="widget_header" value="Trending Movies"/>
-							<param name="widget_target" value="videos"/>
-							<param name="list_id" value="5300"/>
-						</include>
-						<include content="WidgetListPoster">
-							<param name="content_path" value="plugin://plugin.video.pov/?name=Trending+Recent&amp;iconImage=trending.png&amp;mode=build_tvshow_list&amp;action=trakt_tv_trending_recent"/>
-							<param name="widget_header" value="Trending Shows"/>
-							<param name="widget_target" value="videos"/>
-							<param name="list_id" value="5400"/>
-						</include>
-						<include content="WidgetListPoster">
-							<param name="content_path" value="plugin://plugin.video.pov/?mode=build_trakt_list&amp;user=vivek0511&amp;slug=latest-hindi-movies&amp;list_id=27712850&amp;list_type=liked_lists&amp;name=Latest+Hindi+movies"/>
-							<param name="widget_header" value="Hindi Movies"/>
-							<param name="widget_target" value="videos"/>
-							<param name="list_id" value="5500"/>
-						</include>
-						<include content="WidgetListPoster">
-							<param name="content_path" value="plugin://plugin.video.pov/?mode=build_trakt_list&amp;user=dvivek&amp;slug=latest-hindi-series&amp;list_id=28719290&amp;list_type=liked_lists&amp;name=Latest+Hindi+Series"/>
-							<param name="widget_header" value="Hindi Shows"/>
-							<param name="widget_target" value="videos"/>
-							<param name="browse_mode" value="never"/>
-							<param name="list_id" value="5600"/>
-						</include>
 						<include condition="[Skin.HasSetting(movie_categories_standard) | !$EXP[HasMovieCategories]] + Library.HasContent(movies)" content="WidgetListCategories">
 							<param name="content_path" value="library://video/movies/"/>
 							<param name="additional_movie_items" value="true"/>
 							<param name="widget_header" value="$LOCALIZE[31148]"/>
 							<param name="widget_target" value="videos"/>
-							<param name="list_id" value="5700"/>
+							<param name="list_id" value="5900"/>
 						</include>
 						<include condition="Skin.HasSetting(movie_categories_icons) + Library.HasContent(movies)" content="WidgetListCategoriesIcons">
 							<param name="content_path" value="library://video/movies/"/>
@@ -101,12 +64,846 @@
 							<param name="widget_target" value="videos"/>
 							<param name="list_id" value="5900"/>
 						</include>
+						<include content="MovieSubMenuItem" condition="!Skin.HasSetting(movieslot1_show_none) + [Library.HasContent(movies) | $EXP[HasVideoAddonsInMovies]]">
+							<param name="show_inprogress" value="Skin.HasSetting(movieslot1_show_inprogress) | !$EXP[HasMovieSlot1]" />
+							<param name="show_recent" value="Skin.HasSetting(movieslot1_show_recent)" />
+							<param name="show_unwatched"  value="Skin.HasSetting(movieslot1_show_unwatched)" />
+							<param name="show_random" value="Skin.HasSetting(movieslot1_show_random)" />
+							<param name="show_genres" value="Skin.HasSetting(movieslot1_show_genres)" />
+							<param name="show_sets" value="Skin.HasSetting(movieslot1_show_sets)" />
+							<param name="show_videoaddons" value="Skin.HasSetting(movieslot1_show_videoaddons)" />
+							<param name="list_id" value="5100" />
+						</include>
+						<include content="MovieSubMenuItem" condition="!Skin.HasSetting(movieslot2_show_none) + [Library.HasContent(movies) | $EXP[HasVideoAddonsInMovies]]">
+							<param name="show_inprogress" value="Skin.HasSetting(movieslot2_show_inprogress)" />
+							<param name="show_recent" value="Skin.HasSetting(movieslot2_show_recent) | !$EXP[HasMovieSlot2]" />
+							<param name="show_unwatched"  value="Skin.HasSetting(movieslot2_show_unwatched)" />
+							<param name="show_random" value="Skin.HasSetting(movieslot2_show_random)" />
+							<param name="show_genres" value="Skin.HasSetting(movieslot2_show_genres)" />
+							<param name="show_sets" value="Skin.HasSetting(movieslot2_show_sets)" />
+							<param name="show_videoaddons" value="Skin.HasSetting(movieslot2_show_videoaddons)" />
+							<param name="list_id" value="5200" />
+						</include>
+						<include content="MovieSubMenuItem" condition="!Skin.HasSetting(movieslot3_show_none) + [Library.HasContent(movies) | $EXP[HasVideoAddonsInMovies]]">
+							<param name="show_inprogress" value="Skin.HasSetting(movieslot3_show_inprogress)" />
+							<param name="show_recent" value="Skin.HasSetting(movieslot3_show_recent)" />
+							<param name="show_unwatched"  value="Skin.HasSetting(movieslot3_show_unwatched) | !$EXP[HasMovieSlot3]" />
+							<param name="show_random" value="Skin.HasSetting(movieslot3_show_random)" />
+							<param name="show_genres" value="Skin.HasSetting(movieslot3_show_genres)" />
+							<param name="show_sets" value="Skin.HasSetting(movieslot3_show_sets)" />
+							<param name="show_videoaddons" value="Skin.HasSetting(movieslot3_show_videoaddons)" />
+							<param name="list_id" value="5300" />
+						</include>
+						<include content="MovieSubMenuItem" condition="!Skin.HasSetting(movieslot4_show_none) + [Library.HasContent(movies) | $EXP[HasVideoAddonsInMovies]]">
+							<param name="show_inprogress" value="Skin.HasSetting(movieslot4_show_inprogress)" />
+							<param name="show_recent" value="Skin.HasSetting(movieslot4_show_recent)" />
+							<param name="show_unwatched"  value="Skin.HasSetting(movieslot4_show_unwatched)" />
+							<param name="show_random" value="Skin.HasSetting(movieslot4_show_random) | !$EXP[HasMovieSlot4]" />
+							<param name="show_genres" value="Skin.HasSetting(movieslot4_show_genres)" />
+							<param name="show_sets" value="Skin.HasSetting(movieslot4_show_sets)" />
+							<param name="show_videoaddons" value="Skin.HasSetting(movieslot4_show_videoaddons)" />
+							<param name="list_id" value="5400" />
+						</include>
+						<include content="MovieSubMenuItem" condition="!Skin.HasSetting(movieslot5_show_none) + [Library.HasContent(movies) | $EXP[HasVideoAddonsInMovies]]">
+							<param name="show_inprogress" value="Skin.HasSetting(movieslot5_show_inprogress)" />
+							<param name="show_recent" value="Skin.HasSetting(movieslot5_show_recent)" />
+							<param name="show_unwatched"  value="Skin.HasSetting(movieslot5_show_unwatched)" />
+							<param name="show_random" value="Skin.HasSetting(movieslot5_show_random)" />
+							<param name="show_genres" value="Skin.HasSetting(movieslot5_show_genres) | !$EXP[HasMovieSlot5]" />
+							<param name="show_sets" value="Skin.HasSetting(movieslot5_show_sets)" />
+							<param name="show_videoaddons" value="Skin.HasSetting(movieslot5_show_videoaddons)" />
+							<param name="list_id" value="5500" />
+						</include>
+						<include content="MovieSubMenuItem" condition="!Skin.HasSetting(movieslot6_show_none) + [Library.HasContent(movies) | $EXP[HasVideoAddonsInMovies]]">
+							<param name="show_inprogress" value="Skin.HasSetting(movieslot6_show_inprogress)" />
+							<param name="show_recent" value="Skin.HasSetting(movieslot6_show_recent)" />
+							<param name="show_unwatched"  value="Skin.HasSetting(movieslot6_show_unwatched)" />
+							<param name="show_random" value="Skin.HasSetting(movieslot6_show_random)" />
+							<param name="show_genres" value="Skin.HasSetting(movieslot6_show_genres)" />
+							<param name="show_sets" value="Skin.HasSetting(movieslot6_show_sets) | !$EXP[HasMovieSlot6]" />
+							<param name="show_videoaddons" value="Skin.HasSetting(movieslot6_show_videoaddons)" />
+							<param name="list_id" value="5600" />
+						</include>
 					</control>
+					<include content="ImageWidget" condition="!Library.HasContent(movies) + !Skin.HasSetting(movieaction_addons) + !$EXP[HasVideoAddonsInMovies]">
+						<param name="text_label" value="$LOCALIZE[31104]" />
+						<param name="button_label" value="$LOCALIZE[31110]" />
+						<param name="button_onclick" value="ActivateWindow(videos,files,return)"/>
+						<param name="button_id" value="5500"/>
+						<param name="button2_onclick" value="ActivateWindow(skinsettings)"/> 
+					</include>
 					<include content="WidgetScrollbar" condition="Skin.HasSetting(touchmode)">
 						<param name="scrollbar_id" value="5010"/>
 					</include>
-				
-				
+				</control>
+				<control type="group" id="6000">
+					<visible>String.IsEqual(Container(9000).ListItem.Property(id),tvshows)</visible>
+					<include content="Visible_Right_Delayed">
+						<param name="id" value="tvshows"/>
+					</include>
+					<control type="grouplist" id="6001">
+						<include>WidgetGroupListCommon</include>
+						<include condition="[Skin.HasSetting(tvshow_categories_standard) | !$EXP[HasTVShowCategories]] + Library.HasContent(tvshows)" content="WidgetListCategories">
+							<param name="content_path" value="library://video/tvshows/"/>
+							<param name="additional_tvshow_items" value="true"/>
+							<param name="widget_header" value="$LOCALIZE[31148]"/>
+							<param name="widget_target" value="videos"/>
+							<param name="list_id" value="6900"/>
+						</include>
+						<include condition="Skin.HasSetting(tvshow_categories_icons) + Library.HasContent(tvshows)" content="WidgetListCategoriesIcons">
+							<param name="content_path" value="library://video/tvshows/"/>
+							<param name="additional_tvshow_items" value="true"/>
+							<param name="widget_header" value="$LOCALIZE[31148]"/>
+							<param name="widget_target" value="videos"/>
+							<param name="list_id" value="6900"/>
+						</include>
+						<include content="TVShowSubMenuItem" condition="!Skin.HasSetting(tvshowslot1_show_none) + [Library.HasContent(tvshows) | $EXP[HasVideoAddonsInTVShows]]">
+							<param name="show_inprogress" value="Skin.HasSetting(tvshowslot1_show_inprogress) | !$EXP[HasTVShowSlot1]" />
+							<param name="show_recent" value="Skin.HasSetting(tvshowslot1_show_recent)" />
+							<param name="show_unwatched"  value="Skin.HasSetting(tvshowslot1_show_unwatched)" />
+							<param name="show_inprogunwatched" value="Skin.HasSetting(tvshowslot1_show_inprogunwatched)" />
+							<param name="show_random" value="Skin.HasSetting(tvshowslot1_show_random)" />
+							<param name="show_genres" value="Skin.HasSetting(tvshowslot1_show_genres)" />
+							<param name="show_studio" value="Skin.HasSetting(tvshowslot1_show_studio)" />
+							<param name="show_videoaddons" value="Skin.HasSetting(tvshowslot1_show_videoaddons)" />
+							<param name="list_id" value="6100" />
+						</include>
+						<include content="TVShowSubMenuItem" condition="!Skin.HasSetting(tvshowslot2_show_none) + [Library.HasContent(tvshows) | $EXP[HasVideoAddonsInTVShows]]">
+							<param name="show_inprogress" value="Skin.HasSetting(tvshowslot2_show_inprogress)" />
+							<param name="show_recent" value="Skin.HasSetting(tvshowslot2_show_recent) | !$EXP[HasTVShowSlot2]" />
+							<param name="show_unwatched"  value="Skin.HasSetting(tvshowslot2_show_unwatched)" />
+							<param name="show_inprogunwatched" value="Skin.HasSetting(tvshowslot2_show_inprogunwatched)" />
+							<param name="show_random" value="Skin.HasSetting(tvshowslot2_show_random)" />
+							<param name="show_genres" value="Skin.HasSetting(tvshowslot2_show_genres)" />
+							<param name="show_studio" value="Skin.HasSetting(tvshowslot2_show_studio)" />
+							<param name="show_videoaddons" value="Skin.HasSetting(tvshowslot2_show_videoaddons)" />
+							<param name="list_id" value="6200" />
+						</include>
+						<include content="TVShowSubMenuItem" condition="!Skin.HasSetting(tvshowslot3_show_none) + [Library.HasContent(tvshows) | $EXP[HasVideoAddonsInTVShows]]">
+							<param name="show_inprogress" value="Skin.HasSetting(tvshowslot3_show_inprogress)" />
+							<param name="show_recent" value="Skin.HasSetting(tvshowslot3_show_recent)" />
+							<param name="show_unwatched"  value="Skin.HasSetting(tvshowslot3_show_unwatched) | !$EXP[HasTVShowSlot3]" />
+							<param name="show_inprogunwatched" value="Skin.HasSetting(tvshowslot3_show_inprogunwatched)" />
+							<param name="show_random" value="Skin.HasSetting(tvshowslot3_show_random)" />
+							<param name="show_genres" value="Skin.HasSetting(tvshowslot3_show_genres)" />
+							<param name="show_studio" value="Skin.HasSetting(tvshowslot3_show_studio)" />
+							<param name="show_videoaddons" value="Skin.HasSetting(tvshowslot3_show_videoaddons)" />
+							<param name="list_id" value="6300" />
+						</include>
+						<include content="TVShowSubMenuItem" condition="!Skin.HasSetting(tvshowslot4_show_none) + [Library.HasContent(tvshows) | $EXP[HasVideoAddonsInTVShows]]">
+							<param name="show_inprogress" value="Skin.HasSetting(tvshowslot4_show_inprogress)" />
+							<param name="show_recent" value="Skin.HasSetting(tvshowslot4_show_recent)" />
+							<param name="show_unwatched"  value="Skin.HasSetting(tvshowslot4_show_unwatched)" />
+							<param name="show_inprogunwatched" value="Skin.HasSetting(tvshowslot4_show_inprogunwatched) | !$EXP[HasTVShowSlot4]" />
+							<param name="show_random" value="Skin.HasSetting(tvshowslot4_show_random)" />
+							<param name="show_genres" value="Skin.HasSetting(tvshowslot4_show_genres)" />
+							<param name="show_studio" value="Skin.HasSetting(tvshowslot4_show_studio)" />
+							<param name="show_videoaddons" value="Skin.HasSetting(tvshowslot4_show_videoaddons)" />
+							<param name="list_id" value="6400" />
+						</include>
+						<include content="TVShowSubMenuItem" condition="!Skin.HasSetting(tvshowslot5_show_none) + [Library.HasContent(tvshows) | $EXP[HasVideoAddonsInTVShows]]">
+							<param name="show_inprogress" value="Skin.HasSetting(tvshowslot5_show_inprogress)" />
+							<param name="show_recent" value="Skin.HasSetting(tvshowslot5_show_recent)" />
+							<param name="show_unwatched"  value="Skin.HasSetting(tvshowslot5_show_unwatched)" />
+							<param name="show_inprogunwatched" value="Skin.HasSetting(tvshowslot5_show_inprogunwatched)" />
+							<param name="show_random" value="Skin.HasSetting(tvshowslot5_show_random)" />
+							<param name="show_genres" value="Skin.HasSetting(tvshowslot5_show_genres) | !$EXP[HasTVShowSlot5]" />
+							<param name="show_studio" value="Skin.HasSetting(tvshowslot5_show_studio)" />
+							<param name="show_videoaddons" value="Skin.HasSetting(tvshowslot5_show_videoaddons)" />
+							<param name="list_id" value="6500" />
+						</include>
+					</control>
+					<include content="ImageWidget" condition="!Library.HasContent(tvshows) + !Skin.HasSetting(tvshowaction_addons) + !$EXP[HasVideoAddonsInTVShows]">
+						<param name="text_label" value="$LOCALIZE[31104]" />
+						<param name="button_label" value="$LOCALIZE[31110]" />
+						<param name="button_onclick" value="ActivateWindow(videos,files,return)"/>
+						<param name="button_id" value="6400"/>
+						<param name="button2_onclick" value="ActivateWindow(skinsettings)"/> 
+					</include>
+					<include content="WidgetScrollbar" condition="Skin.HasSetting(touchmode)">
+						<param name="scrollbar_id" value="6010"/>
+					</include>
+				</control>
+				<control type="group" id="7000">
+					<visible>String.IsEqual(Container(9000).ListItem.Property(id),music)</visible>
+					<include content="Visible_Right_Delayed">
+						<param name="id" value="music"/>
+					</include>
+					<control type="grouplist" id="7001">
+						<include>WidgetGroupListCommon</include>
+						<include condition="[Skin.HasSetting(music_categories_standard) | !$EXP[HasMusicCategories]] + Library.HasContent(music)" content="WidgetListCategories">
+							<param name="content_path" value="library://music/"/>
+							<param name="widget_header" value="$LOCALIZE[31148]"/>
+							<param name="widget_target" value="music"/>
+							<param name="list_id" value="7900"/>
+						</include>
+						<include condition="Skin.HasSetting(music_categories_icons) + Library.HasContent(music)" content="WidgetListCategoriesIcons">
+							<param name="content_path" value="library://music/"/>
+							<param name="widget_header" value="$LOCALIZE[31148]"/>
+							<param name="widget_target" value="music"/>
+							<param name="list_id" value="7900"/>
+							<param name="fallback_icon" value="DefaultMusicArtists.png"/>
+						</include>
+						<include content="MusicSubMenuItem" condition="!Skin.HasSetting(musicslot1_show_none) + [Library.HasContent(music) | $EXP[HasMusicAddonsInMusic]]">
+							<param name="show_playedalbums" value="Skin.HasSetting(musicslot1_show_playedalbums) | !$EXP[HasMusicSlot1]" />
+							<param name="show_addedalbums" value="Skin.HasSetting(musicslot1_show_addedalbums)" />
+							<param name="show_randomalbums"  value="Skin.HasSetting(musicslot1_show_randomalbums)" />
+							<param name="show_randomartists" value="Skin.HasSetting(musicslot1_show_randomartists)" />
+							<param name="show_unplayedalbums" value="Skin.HasSetting(musicslot1_show_unplayedalbums)" />
+							<param name="show_mostplayedalbums" value="Skin.HasSetting(musicslot1_show_mostplayed albums)" />
+							<param name="show_musicaddons" value="Skin.HasSetting(musicslot1_show_musicaddons)" />
+							<param name="list_id" value="7100" />
+						</include>
+						<include content="MusicSubMenuItem" condition="!Skin.HasSetting(musicslot2_show_none) + [Library.HasContent(music) | $EXP[HasMusicAddonsInMusic]]">
+							<param name="show_playedalbums" value="Skin.HasSetting(musicslot2_show_playedalbums)" />
+							<param name="show_addedalbums" value="Skin.HasSetting(musicslot2_show_addedalbums) | !$EXP[HasMusicSlot2]" />
+							<param name="show_randomalbums"  value="Skin.HasSetting(musicslot2_show_randomalbums)" />
+							<param name="show_randomartists" value="Skin.HasSetting(musicslot2_show_randomartists)" />
+							<param name="show_unplayedalbums" value="Skin.HasSetting(musicslot2_show_unplayedalbums)" />
+							<param name="show_mostplayedalbums" value="Skin.HasSetting(musicslot2_show_mostplayed albums)" />
+							<param name="show_musicaddons" value="Skin.HasSetting(musicslot2_show_musicaddons)" />
+							<param name="list_id" value="7200" />
+						</include>
+						<include content="MusicSubMenuItem" condition="!Skin.HasSetting(musicslot3_show_none) + [Library.HasContent(music) | $EXP[HasMusicAddonsInMusic]]">
+							<param name="show_playedalbums" value="Skin.HasSetting(musicslot3_show_playedalbums)" />
+							<param name="show_addedalbums" value="Skin.HasSetting(musicslot3_show_addedalbums)" />
+							<param name="show_randomalbums"  value="Skin.HasSetting(musicslot3_show_randomalbums) | !$EXP[HasMusicSlot3]" />
+							<param name="show_randomartists" value="Skin.HasSetting(musicslot3_show_randomartists)" />
+							<param name="show_unplayedalbums" value="Skin.HasSetting(musicslot3_show_unplayedalbums)" />
+							<param name="show_mostplayedalbums" value="Skin.HasSetting(musicslot3_show_mostplayed albums)" />
+							<param name="show_musicaddons" value="Skin.HasSetting(musicslot3_show_musicaddons)" />
+							<param name="list_id" value="7300" />
+						</include>
+						<include content="MusicSubMenuItem" condition="!Skin.HasSetting(musicslot4_show_none) + [Library.HasContent(music) | $EXP[HasMusicAddonsInMusic]]">
+							<param name="show_playedalbums" value="Skin.HasSetting(musicslot4_show_playedalbums)" />
+							<param name="show_addedalbums" value="Skin.HasSetting(musicslot4_show_addedalbums)" />
+							<param name="show_randomalbums"  value="Skin.HasSetting(musicslot4_show_randomalbums)" />
+							<param name="show_randomartists" value="Skin.HasSetting(musicslot4_show_randomartists) | !$EXP[HasMusicSlot4]" />
+							<param name="show_unplayedalbums" value="Skin.HasSetting(musicslot4_show_unplayedalbums)" />
+							<param name="show_mostplayedalbums" value="Skin.HasSetting(musicslot4_show_mostplayed albums)" />
+							<param name="show_musicaddons" value="Skin.HasSetting(musicslot4_show_musicaddons)" />
+							<param name="list_id" value="7400" />
+						</include>
+						<include content="MusicSubMenuItem" condition="!Skin.HasSetting(musicslot5_show_none) + [Library.HasContent(music) | $EXP[HasMusicAddonsInMusic]]">
+							<param name="show_playedalbums" value="Skin.HasSetting(musicslot5_show_playedalbums)" />
+							<param name="show_addedalbums" value="Skin.HasSetting(musicslot5_show_addedalbums)" />
+							<param name="show_randomalbums"  value="Skin.HasSetting(musicslot5_show_randomalbums)" />
+							<param name="show_randomartists" value="Skin.HasSetting(musicslot5_show_randomartists)" />
+							<param name="show_unplayedalbums" value="Skin.HasSetting(musicslot5_show_unplayedalbums) | !$EXP[HasMusicSlot5]" />
+							<param name="show_mostplayedalbums" value="Skin.HasSetting(musicslot5_show_mostplayed albums)" />
+							<param name="show_musicaddons" value="Skin.HasSetting(musicslot5_show_musicaddons)" />
+							<param name="list_id" value="7500" />
+						</include>
+						<include content="MusicSubMenuItem" condition="!Skin.HasSetting(musicslot6_show_none) + [Library.HasContent(music) | $EXP[HasMusicAddonsInMusic]]">
+							<param name="show_playedalbums" value="Skin.HasSetting(musicslot6_show_playedalbums)" />
+							<param name="show_addedalbums" value="Skin.HasSetting(musicslot6_show_addedalbums)" />
+							<param name="show_randomalbums"  value="Skin.HasSetting(musicslot6_show_randomalbums)" />
+							<param name="show_randomartists" value="Skin.HasSetting(musicslot6_show_randomartists)" />
+							<param name="show_unplayedalbums" value="Skin.HasSetting(musicslot6_show_unplayedalbums)" />
+							<param name="show_mostplayedalbums" value="Skin.HasSetting(musicslot6_show_mostplayedalbums) | !$EXP[HasMusicSlot6]" />
+							<param name="show_musicaddons" value="Skin.HasSetting(musicslot6_show_musicaddons)" />
+							<param name="list_id" value="7600" />
+						</include>
+					</control>
+					<include content="ImageWidget" condition="!Library.HasContent(music) + !Skin.HasSetting(musicaction_addons) + !$EXP[HasMusicAddonsInMusic]">
+						<param name="text_label" value="$LOCALIZE[31104]" />
+						<param name="button_label" value="$LOCALIZE[31110]" />
+						<param name="button_onclick" value="ActivateWindow(music,files)"/>
+						<param name="button_id" value="7600"/>
+						<param name="button2_onclick" value="ActivateWindow(skinsettings)"/> 
+					</include>
+					<include content="WidgetScrollbar" condition="Skin.HasSetting(touchmode)">
+						<param name="scrollbar_id" value="7010"/>
+					</include>
+				</control>
+				<control type="group" id="8000">
+					<visible>String.IsEqual(Container(9000).ListItem.Property(id),addons)</visible>
+					<include content="Visible_Right_Delayed">
+						<param name="id" value="addons"/>
+					</include>
+					<control type="grouplist" id="8001">
+						<include>WidgetGroupListCommon</include>
+						<include condition="[Skin.HasSetting(addon_categories_standard) | !$EXP[HasAddonCategories]]" content="WidgetListCategories">
+							<param name="content_path" value="addons://"/>
+							<param name="widget_header" value="$LOCALIZE[31148]"/>
+							<param name="widget_target" value="addonbrowser"/>
+							<param name="list_id" value="8900"/>
+							<param name="visible" value="Integer.IsGreater(Container(8100).NumItems,0) | Integer.IsGreater(Container(8200).NumItems,0) | Integer.IsGreater(Container(8300).NumItems,0) | Integer.IsGreater(Container(8400).NumItems,0) | Integer.IsGreater(Container(8500).NumItems,0) | Integer.IsGreater(Container(8700).NumItems,0)"/>
+						</include>
+						<include condition="Skin.HasSetting(addon_categories_icons)" content="WidgetListCategoriesIcons">
+							<param name="content_path" value="addons://"/>
+							<param name="widget_header" value="$LOCALIZE[31148]"/>
+							<param name="widget_target" value="addonbrowser"/>
+							<param name="list_id" value="8900"/>
+						</include>
+						<include content="AddonSubMenuItem" condition="!Skin.HasSetting(addonslot1_show_none)">
+							<param name="show_video" value="Skin.HasSetting(addonslot1_show_video) | !$EXP[HasAddonSlot1]" />
+							<param name="show_music" value="Skin.HasSetting(addonslot1_show_music)" />
+							<param name="show_games"  value="Skin.HasSetting(addonslot1_show_games)" />
+							<param name="show_programs" value="Skin.HasSetting(addonslot1_show_programs)" />
+							<param name="show_android" value="Skin.HasSetting(addonslot1_show_android) + System.Platform.Android" />
+							<param name="show_pictures" value="Skin.HasSetting(addonslot1_show_pictures)" />
+							<param name="list_id" value="8100" />
+						</include>
+						<include content="AddonSubMenuItem" condition="!Skin.HasSetting(addonslot2_show_none)">
+							<param name="show_video" value="Skin.HasSetting(addonslot2_show_video)" />
+							<param name="show_music" value="Skin.HasSetting(addonslot2_show_music) | !$EXP[HasAddonSlot2]" />
+							<param name="show_games"  value="Skin.HasSetting(addonslot2_show_games)" />
+							<param name="show_programs" value="Skin.HasSetting(addonslot2_show_programs)" />
+							<param name="show_android" value="Skin.HasSetting(addonslot2_show_android) + System.Platform.Android" />
+							<param name="show_pictures" value="Skin.HasSetting(addonslot2_show_pictures)" />
+							<param name="list_id" value="8200" />
+						</include>
+						<include content="AddonSubMenuItem" condition="!Skin.HasSetting(addonslot3_show_none)">
+							<param name="show_video" value="Skin.HasSetting(addonslot3_show_video)" />
+							<param name="show_music" value="Skin.HasSetting(addonslot3_show_music)" />
+							<param name="show_games"  value="Skin.HasSetting(addonslot3_show_games)" />
+							<param name="show_programs" value="Skin.HasSetting(addonslot3_show_programs)" />
+							<param name="show_android" value="Skin.HasSetting(addonslot3_show_android) + System.Platform.Android" />
+							<param name="show_pictures" value="Skin.HasSetting(addonslot3_show_pictures)" />
+							<param name="list_id" value="8300" />
+						</include>
+						<include content="AddonSubMenuItem" condition="!Skin.HasSetting(addonslot4_show_none)">
+							<param name="show_video" value="Skin.HasSetting(addonslot4_show_video)" />
+							<param name="show_music" value="Skin.HasSetting(addonslot4_show_music)" />
+							<param name="show_games"  value="Skin.HasSetting(addonslot4_show_games)" />
+							<param name="show_programs" value="Skin.HasSetting(addonslot4_show_programs) | !$EXP[HasAddonSlot4]" />
+							<param name="show_android" value="Skin.HasSetting(addonslot4_show_android) + System.Platform.Android" />
+							<param name="show_pictures" value="Skin.HasSetting(addonslot4_show_pictures)" />
+							<param name="list_id" value="8400" />
+						</include>
+						<include content="AddonSubMenuItem" condition="!Skin.HasSetting(addonslot5_show_none)">
+							<param name="show_video" value="Skin.HasSetting(addonslot5_show_video)" />
+							<param name="show_music" value="Skin.HasSetting(addonslot5_show_music)" />
+							<param name="show_games"  value="Skin.HasSetting(addonslot5_show_games)" />
+							<param name="show_programs" value="Skin.HasSetting(addonslot5_show_programs)" />
+							<param name="show_android" value="[Skin.HasSetting(addonslot5_show_android) | !$EXP[HasAddonSlot5]] + System.Platform.Android" />
+							<param name="show_pictures" value="Skin.HasSetting(addonslot5_show_pictures)" />
+							<param name="list_id" value="8500" />
+						</include>
+						<include content="AddonSubMenuItem" condition="!Skin.HasSetting(addonslot6_show_none)">
+							<param name="show_video" value="Skin.HasSetting(addonslot6_show_video)" />
+							<param name="show_music" value="Skin.HasSetting(addonslot6_show_music)" />
+							<param name="show_games"  value="Skin.HasSetting(addonslot6_show_games)" />
+							<param name="show_programs" value="Skin.HasSetting(addonslot6_show_programs)" />
+							<param name="show_android" value="Skin.HasSetting(addonslot6_show_android) + System.Platform.Android" />
+							<param name="show_pictures" value="Skin.HasSetting(addonslot6_show_pictures)| !$EXP[HasAddonSlot6]" />
+							<param name="list_id" value="8600" />
+						</include>
+					</control>
+					<include content="ImageWidget">
+						<param name="text_label" value="$LOCALIZE[31119]" />
+						<param name="button_label" value="$LOCALIZE[31118]" />
+						<param name="button_onclick" value="ActivateWindow(addonbrowser)"/>
+						<param name="button_id" value="8800"/>
+						<param name="visible" value="[Integer.IsEqual(Container(8001).NumItems,0) | [Integer.IsEqual(Container(8001).NumItems,1) + !String.IsEqual(Skin.String(addon_categories),2)]] + ![Skin.HasSetting(addonslot1_show_none) | Skin.HasSetting(addonslot2_show_none) | Skin.HasSetting(addonslot3_show_none) | Skin.HasSetting(addonslot4_show_none) | Skin.HasSetting(addonslot5_show_none) | Skin.HasSetting(addonslot6_show_none)]"/>
+						<param name="button2_onclick" value="ActivateWindow(skinsettings)"/> 
+					</include>
+					<include content="WidgetScrollbar" condition="Skin.HasSetting(touchmode)">
+						<param name="scrollbar_id" value="8010"/>
+					</include>
+				</control>
+				<control type="group" id="11000">
+					<visible>String.IsEqual(Container(9000).ListItem.Property(id),video)</visible>
+					<include content="Visible_Right_Delayed">
+						<param name="id" value="video"/>
+					</include>
+					<control type="grouplist" id="11001">
+						<include>WidgetGroupListCommon</include>
+						<pagecontrol>11010</pagecontrol>
+						<include condition="!Skin.HasSetting(no_video_categories)" content="WidgetListCategories">
+							<param name="content_path" value="library://video/"/>
+							<param name="widget_header" value="$LOCALIZE[31148]"/>
+							<param name="widget_target" value="videos"/>
+							<param name="list_id" value="11900"/>
+						</include>
+						<include condition="!Skin.HasSetting(no_video_sources)" content="WidgetListCategories">
+							<param name="content_path" value="sources://video/"/>
+							<param name="widget_header" value="$LOCALIZE[20094]"/>
+							<param name="widget_target" value="videos"/>
+							<param name="list_id" value="11100"/>
+						</include>
+						<include condition="!Skin.HasSetting(no_video_playlists)" content="WidgetListCategories">
+							<param name="content_path" value="special://videoplaylists/"/>
+							<param name="widget_header" value="$LOCALIZE[136]"/>
+							<param name="widget_target" value="videos"/>
+							<param name="list_id" value="11200"/>
+							<param name="icon" value="$VAR[WidgetPlaylistIconVar]"/>
+						</include>
+						<include condition="Skin.HasSetting(show_video_addons)" content="WidgetListSquare">
+							<param name="content_path" value="addons://sources/video/"/>
+							<param name="widget_header" value="$LOCALIZE[1037]"/>
+							<param name="widget_target" value="videos"/>
+							<param name="sortby" value="lastused"/>
+							<param name="sortorder" value="descending"/>
+							<param name="list_id" value="11300"/>
+							<param name="fallback_icon" value="DefaultAddon.png"/>
+						</include>
+					</control>
+					<include content="ImageWidget" condition="!Library.HasContent(video) + Skin.HasSetting(no_video_categories) + Skin.HasSetting(no_video_sources) + Skin.HasSetting(no_video_playlists) + !Skin.HasSetting(show_video_addons)">
+						<param name="text_label" value="$LOCALIZE[31105]" />
+						<param name="button_label" value="$LOCALIZE[31110]" />
+						<param name="button_onclick" value="ActivateWindow(videos,root)"/>
+						<param name="button_id" value="11300"/>
+						<param name="button2_onclick" value="ActivateWindow(skinsettings)"/> 
+					</include>
+					<include content="WidgetScrollbar" condition="Skin.HasSetting(touchmode)">
+						<param name="scrollbar_id" value="11010"/>
+					</include>
+				</control>
+				<control type="group" id="12000">
+					<visible>String.IsEqual(Container(9000).ListItem.Property(id),livetv)</visible>
+					<include content="Visible_Right_Delayed">
+						<param name="id" value="livetv"/>
+					</include>
+					<control type="grouplist" id="12001">
+						<include>WidgetGroupListCommon</include>
+						<pagecontrol>12010</pagecontrol>
+						<include condition="[Skin.HasSetting(tv_categories_standard) | !$EXP[HasTVCategories]] + System.HasPVRAddon" content="WidgetListCategories">
+							<param name="content_path" value="pvr://tv/"/>
+							<param name="widget_header" value="$LOCALIZE[31148]"/>
+							<param name="list_id" value="12900"/>
+						</include>
+						<include condition="Skin.HasSetting(tv_categories_icons) + System.HasPVRAddon" content="WidgetListCategoriesIcons">
+							<param name="content_path" value="pvr://tv/"/>
+							<param name="widget_header" value="$LOCALIZE[31148]"/>
+							<param name="widget_target" value="pvr"/>
+							<param name="list_id" value="12900"/>
+						</include>
+						<include content="TVSubMenuItem" condition="!Skin.HasSetting(tvslot1_show_none)  + System.HasPVRAddon">
+							<param name="show_channels" value="Skin.HasSetting(tvslot1_show_channels) | !$EXP[HasTVSlot1]" />
+							<param name="show_recordings" value="Skin.HasSetting(tvslot1_show_recordings)" />
+							<param name="show_timers" value="Skin.HasSetting(tvslot1_show_timers)" />
+							<param name="show_channelgroups" value="Skin.HasSetting(tvslot1_show_channelgroups)" />
+							<param name="show_search" value="Skin.HasSetting(tvslot1_show_search)" />
+							<param name="show_nextrecordings" value="Skin.HasSetting(tvslot1_show_nextrecordings)" />
+							<param name="list_id" value="12200" />
+						</include>
+						<include content="TVSubMenuItem" condition="!Skin.HasSetting(tvslot2_show_none) + System.HasPVRAddon">
+							<param name="show_channels" value="Skin.HasSetting(tvslot2_show_channels)" />
+							<param name="show_recordings" value="Skin.HasSetting(tvslot2_show_recordings) | !$EXP[HasTVSlot2]" />
+							<param name="show_timers" value="Skin.HasSetting(tvslot2_show_timers)" />
+							<param name="show_channelgroups" value="Skin.HasSetting(tvslot2_show_channelgroups)" />
+							<param name="show_search" value="Skin.HasSetting(tvslot2_show_search)" />
+							<param name="show_nextrecordings" value="Skin.HasSetting(tvslot2_show_nextrecordings)" />
+							<param name="list_id" value="12300" />
+						</include>
+						<include content="TVSubMenuItem" condition="!Skin.HasSetting(tvslot3_show_none) + System.HasPVRAddon">
+							<param name="show_channels" value="Skin.HasSetting(tvslot3_show_channels)" />
+							<param name="show_recordings" value="Skin.HasSetting(tvslot3_show_recordings)" />
+							<param name="show_timers" value="Skin.HasSetting(tvslot3_show_timers) | !$EXP[HasTVSlot3]" />
+							<param name="show_channelgroups" value="Skin.HasSetting(tvslot3_show_channelgroups)" />
+							<param name="show_search" value="Skin.HasSetting(tvslot3_show_search)" />
+							<param name="show_nextrecordings" value="Skin.HasSetting(tvslot3_show_nextrecordings)" />
+							<param name="list_id" value="12400" />
+						</include>
+						<include content="TVSubMenuItem" condition="!Skin.HasSetting(tvslot4_show_none) + System.HasPVRAddon">
+							<param name="show_channels" value="Skin.HasSetting(tvslot4_show_channels)" />
+							<param name="show_recordings" value="Skin.HasSetting(tvslot4_show_recordings)" />
+							<param name="show_timers" value="Skin.HasSetting(tvslot4_show_timers)" />
+							<param name="show_channelgroups" value="Skin.HasSetting(tvslot4_show_channelgroups) | !$EXP[HasTVSlot4]" />
+							<param name="show_search" value="Skin.HasSetting(tvslot4_show_search)" />
+							<param name="show_nextrecordings" value="Skin.HasSetting(tvslot4_show_nextrecordings)" />
+							<param name="list_id" value="12500" />
+						</include>
+						<include content="TVSubMenuItem" condition="!Skin.HasSetting(tvslot5_show_none) + System.HasPVRAddon">
+							<param name="show_channels" value="Skin.HasSetting(tvslot5_show_channels)" />
+							<param name="show_recordings" value="Skin.HasSetting(tvslot5_show_recordings)" />
+							<param name="show_timers" value="Skin.HasSetting(tvslot5_show_timers)" />
+							<param name="show_channelgroups" value="Skin.HasSetting(tvslot5_show_channelgroups)" />
+							<param name="show_search" value="Skin.HasSetting(tvslot5_show_search) | !$EXP[HasTVSlot5]" />
+							<param name="show_nextrecordings" value="Skin.HasSetting(tvslot5_show_nextrecordings)" />
+							<param name="list_id" value="12600" />
+						</include>
+					</control>
+					<include content="ImageWidget" condition="!System.HasPVRAddon">
+						<param name="text_label" value="$LOCALIZE[31143]" />
+						<param name="button_label" value="$LOCALIZE[31144]" />
+						<param name="button_onclick" value="ActivateWindow(addonbrowser,addons://default_binary_addons_source/kodi.pvrclient,return)"/>
+						<param name="button_id" value="12700"/>
+						<param name="button2_onclick" value="ActivateWindow(skinsettings)"/> 
+					</include>
+					<include content="WidgetScrollbar" condition="Skin.HasSetting(touchmode)">
+						<param name="scrollbar_id" value="12010"/>
+					</include>
+				</control>
+				<control type="group" id="13000">
+					<visible>String.IsEqual(Container(9000).ListItem.Property(id),radio)</visible>
+					<include content="Visible_Right_Delayed">
+						<param name="id" value="radio"/>
+					</include>
+					<control type="grouplist" id="13001">
+						<include>WidgetGroupListCommon</include>
+						<pagecontrol>13010</pagecontrol>
+						<include condition="[Skin.HasSetting(radio_categories_standard) | !$EXP[HasRadioCategories]] + System.HasPVRAddon" content="WidgetListCategories">
+							<param name="content_path" value="pvr://radio/"/>
+							<param name="widget_header" value="$LOCALIZE[31148]"/>
+							<param name="list_id" value="13900"/>
+						</include>
+						<include condition="Skin.HasSetting(radio_categories_icons) + System.HasPVRAddon" content="WidgetListCategoriesIcons">
+							<param name="content_path" value="pvr://radio/"/>
+							<param name="widget_header" value="$LOCALIZE[31148]"/>
+							<param name="list_id" value="13900"/>
+							<param name="pvr_submenu" value="true"/>
+							<param name="pvr_type" value="Radio"/>
+						</include>
+						<include content="RadioSubMenuItem" condition="!Skin.HasSetting(radioslot1_show_none) + System.HasPVRAddon">
+							<param name="show_channels" value="Skin.HasSetting(radioslot1_show_channels) | !$EXP[HasRadioSlot1]" />
+							<param name="show_recordings" value="Skin.HasSetting(radioslot1_show_recordings)" />
+							<param name="show_timers" value="Skin.HasSetting(radioslot1_show_timers)" />
+							<param name="show_channelgroups" value="Skin.HasSetting(radioslot1_show_channelgroups)" />
+							<param name="show_search" value="Skin.HasSetting(radioslot1_show_search)" />
+							<param name="list_id" value="13200" />
+						</include>
+						<include content="RadioSubMenuItem" condition="!Skin.HasSetting(radioslot2_show_none) + System.HasPVRAddon">
+							<param name="show_channels" value="Skin.HasSetting(radioslot2_show_channels)" />
+							<param name="show_recordings" value="Skin.HasSetting(radioslot2_show_recordings) | !$EXP[HasRadioSlot2]" />
+							<param name="show_timers" value="Skin.HasSetting(radioslot2_show_timers)" />
+							<param name="show_channelgroups" value="Skin.HasSetting(radioslot2_show_channelgroups)" />
+							<param name="show_search" value="Skin.HasSetting(radioslot2_show_search)" />
+							<param name="list_id" value="13300" />
+						</include>
+						<include content="RadioSubMenuItem" condition="!Skin.HasSetting(radioslot3_show_none) + System.HasPVRAddon">
+							<param name="show_channels" value="Skin.HasSetting(radioslot3_show_channels)" />
+							<param name="show_recordings" value="Skin.HasSetting(radioslot3_show_recordings)" />
+							<param name="show_timers" value="Skin.HasSetting(radioslot3_show_timers) | !$EXP[HasRadioSlot3]" />
+							<param name="show_channelgroups" value="Skin.HasSetting(radioslot3_show_channelgroups)" />
+							<param name="show_search" value="Skin.HasSetting(radioslot3_show_search)" />
+							<param name="list_id" value="13400" />
+						</include>
+						<include content="RadioSubMenuItem" condition="!Skin.HasSetting(radioslot4_show_none) + System.HasPVRAddon">
+							<param name="show_channels" value="Skin.HasSetting(radioslot4_show_channels)" />
+							<param name="show_recordings" value="Skin.HasSetting(radioslot4_show_recordings)" />
+							<param name="show_timers" value="Skin.HasSetting(radioslot4_show_timers)" />
+							<param name="show_channelgroups" value="Skin.HasSetting(radioslot4_show_channelgroups) | !$EXP[HasRadioSlot4]" />
+							<param name="show_search" value="Skin.HasSetting(radioslot4_show_search)" />
+							<param name="list_id" value="13500" />
+						</include>
+						<include content="RadioSubMenuItem" condition="!Skin.HasSetting(radioslot5_show_none) + System.HasPVRAddon">
+							<param name="show_channels" value="Skin.HasSetting(radioslot5_show_channels)" />
+							<param name="show_recordings" value="Skin.HasSetting(radioslot5_show_recordings)" />
+							<param name="show_timers" value="Skin.HasSetting(radioslot5_show_timers)" />
+							<param name="show_channelgroups" value="Skin.HasSetting(radioslot5_show_channelgroups)" />
+							<param name="show_search" value="Skin.HasSetting(radioslot5_show_search) | !$EXP[HasRadioSlot5]" />
+							<param name="list_id" value="13500" />
+						</include>
+					</control>
+					<include content="ImageWidget" condition="!System.HasPVRAddon">
+						<param name="text_label" value="$LOCALIZE[31143]" />
+						<param name="button_label" value="$LOCALIZE[31144]" />
+						<param name="button_onclick" value="ActivateWindow(addonbrowser,addons://default_binary_addons_source/kodi.pvrclient,return)"/>
+						<param name="button_id" value="13400"/>
+						<param name="button2_onclick" value="ActivateWindow(skinsettings)"/> 
+					</include>
+					<include content="WidgetScrollbar" condition="Skin.HasSetting(touchmode)">
+						<param name="scrollbar_id" value="13010"/>
+					</include>
+				</control>
+				<control type="group" id="14000">
+					<visible>String.IsEqual(Container(9000).ListItem.Property(id),favorites)</visible>
+					<include content="Visible_Right_Delayed">
+						<param name="id" value="favorites"/>
+					</include>
+					<control type="panel" id="14100">
+						<left>65</left>
+						<top>0</top>
+						<right>0</right>
+						<bottom>0</bottom>
+						<onleft>9000</onleft>
+						<onright>9000</onright>
+						<onup>14100</onup>
+						<ondown>14100</ondown>
+						<preloaditems>2</preloaditems>
+						<scrolltime tween="cubic" easing="out">500</scrolltime>
+						<orientation>vertical</orientation>
+						<pagecontrol>14010</pagecontrol>
+						<visible>Integer.IsGreater(Container(14100).NumItems,0) | Container(14100).IsUpdating</visible>
+						<itemlayout width="330" height="401">
+							<control type="group">
+								<top>130</top>
+								<include content="InfoWallMusicLayout">
+									<param name="fallback_image" value="DefaultFavourites.png" />
+									<param name="focused" value="false" />
+								</include>
+							</control>
+						</itemlayout>
+						<focusedlayout width="330" height="401">
+							<control type="group">
+								<depth>DepthContentPopout</depth>
+								<top>130</top>
+								<animation effect="zoom" start="100" end="110" time="200" tween="sine" easing="inout" center="170,320">Focus</animation>
+								<animation effect="zoom" start="110" end="100" time="200" tween="sine" easing="inout" center="170,320">UnFocus</animation>
+								<include content="InfoWallMusicLayout">
+									<param name="fallback_image" value="DefaultFavourites.png" />
+									<param name="focused" value="true" />
+								</include>
+							</control>
+						</focusedlayout>
+						<content>favourites://</content>
+					</control>
+					<include content="ImageWidget">
+						<param name="text_label" value="$LOCALIZE[31025]" />
+						<param name="button_label" value="$LOCALIZE[31116]" />
+						<param name="button_onclick" value=""/>
+						<param name="button_id" value="5500"/>
+						<param name="visible" value="!Integer.IsGreater(Container(14100).NumItems,0) + !Container(14100).IsUpdating"/>
+						<param name="visible_1" value="false"/>
+						<param name="button2_onclick" value="ActivateWindow(skinsettings)"/> 
+					</include>
+					<include content="WidgetScrollbar" condition="Skin.HasSetting(touchmode)">
+						<param name="scrollbar_id" value="14010"/>
+					</include>
+				</control>
+				<control type="group" id="15000">
+					<visible>String.IsEqual(Container(9000).ListItem.Property(id),weather)</visible>
+					<include content="Visible_Right_Delayed">
+						<param name="id" value="weather"/>
+					</include>
+					<control type="grouplist" id="15001">
+						<include>WidgetGroupListCommon</include>
+						<pagecontrol>15010</pagecontrol>
+						<control type="group" id="16678">
+							<description>Weather info</description>
+							<left>68</left>
+							<right>70</right>
+							<top>102</top>
+							<height>360</height>
+							<visible>!String.IsEmpty(Weather.plugin)</visible>
+							<control type="image">
+								<bottom>90</bottom>
+								<width>100%</width>
+								<texture border="21">dialogs/dialog-bg.png</texture>
+							</control>
+							<control type="label">
+								<left>840</left>
+								<top>60</top>
+								<aligny>center</aligny>
+								<height>24</height>
+								<right>60</right>
+								<align>right</align>
+								<font>font30_title</font>
+								<label>$INFO[Weather.Location]</label>
+							</control>
+							<control type="label">
+								<left>840</left>
+								<top>120</top>
+								<aligny>center</aligny>
+								<height>24</height>
+								<right>60</right>
+								<align>right</align>
+								<font>font14</font>
+								<label>$INFO[Weather.Conditions]</label>
+							</control>
+							<control type="label">
+								<left>840</left>
+								<top>180</top>
+								<aligny>center</aligny>
+								<height>24</height>
+								<right>60</right>
+								<align>right</align>
+								<font>font14</font>
+								<label>$INFO[Weather.Temperature]</label>
+							</control>
+							<control type="grouplist">
+								<top>50</top>
+								<left>50</left>
+								<right>20</right>
+								<orientation>horizontal</orientation>
+								<align>left</align>
+								<itemgap>-110</itemgap>
+								<include content="WeatherIconHome" condition="!String.IsEmpty(Weather.Plugin)">
+									<param name="label" value="Window(weather).Property(Current.Wind)" />
+									<param name="texture" value="icons/weather/wind.png" />
+									<param name="header" value="404" />
+								</include>
+								<include content="WeatherIconHome" condition="!String.IsEmpty(Weather.Plugin)">
+									<param name="label" value="Window(weather).Property(Current.Humidity)" />
+									<param name="texture" value="icons/weather/humidity.png" />
+									<param name="header" value="406" />
+								</include>
+								<include content="WeatherIconHome" condition="!String.IsEmpty(Weather.Plugin)">
+									<param name="label" value="Window(weather).Property(Current.Precipitation)" />
+									<param name="texture" value="icons/weather/rain.png" />
+									<param name="header" value="33021" />
+								</include>
+								<include content="WeatherIconHome" condition="!String.IsEmpty(Weather.Plugin)">
+									<param name="label" value="Window(weather).Property(Today.Sunrise)" />
+									<param name="texture" value="icons/weather/sunrise.png" />
+									<param name="header" value="405" />
+								</include>
+								<include content="WeatherIconHome" condition="!String.IsEmpty(Weather.Plugin)">
+									<param name="label" value="Window(weather).Property(Today.Sunset)" />
+									<param name="texture" value="icons/weather/sunset.png" />
+									<param name="header" value="403" />
+								</include>
+							</control>
+						</control>
+						<include content="WeatherWidget" condition="!String.IsEmpty(Weather.Plugin)">
+							<param name="content_include" value="DailyItems" />
+							<param name="list_id" value="15200" />
+							<param name="widget_header" value="$LOCALIZE[31019]"/>
+							<param name="visible" value="!String.IsEmpty(Window(weather).Property(Daily.IsFetched))" />
+						</include>
+						<include content="WeatherWidget" condition="!String.IsEmpty(Weather.Plugin)">
+							<param name="content_include" value="HourlyItems" />
+							<param name="list_id" value="15100" />
+							<param name="widget_header" value="$LOCALIZE[33036]"/>
+							<param name="visible" value="!String.IsEmpty(Window(weather).Property(Hourly.IsFetched))" />
+						</include>
+					</control>
+					<include content="ImageWidget" condition="String.IsEmpty(Weather.plugin)">
+						<param name="text_label" value="$LOCALIZE[31120]" />
+						<param name="button_label" value="$LOCALIZE[31121]" />
+						<param name="button_onclick" value="ActivateWindow(servicesettings,weather)"/>
+						<param name="button_id" value="15300"/>
+						<param name="button2_onclick" value="ActivateWindow(skinsettings)"/> 
+					</include>
+					<include content="WidgetScrollbar" condition="Skin.HasSetting(touchmode)">
+						<param name="scrollbar_id" value="15010"/>
+					</include>
+				</control>
+				<control type="group" id="16000">
+					<visible>String.IsEqual(Container(9000).ListItem.Property(id),musicvideos)</visible>
+					<include content="Visible_Right_Delayed">
+						<param name="id" value="musicvideos"/>
+					</include>
+					<control type="grouplist" id="16001">
+						<include>WidgetGroupListCommon</include>
+						<pagecontrol>16010</pagecontrol>
+						<include condition="[Skin.HasSetting(musicvideo_categories_standard) | !$EXP[HasMusicVideoCategories]] + Library.HasContent(musicvideos)" content="WidgetListCategories" >
+							<param name="content_path" value="library://video/musicvideos/"/>
+							<param name="widget_header" value="$LOCALIZE[31148]"/>
+							<param name="widget_target" value="videos"/>
+							<param name="list_id" value="16900"/>
+						</include>
+						<include condition="Skin.HasSetting(musicvideo_categories_icons) + Library.HasContent(musicvideos)" content="WidgetListCategoriesIcons">
+							<param name="content_path" value="library://music/musicvideos/" />
+							<param name="widget_header" value="$LOCALIZE[31148]"/>
+							<param name="widget_target" value="videos"/>
+							<param name="list_id" value="16900"/>
+						</include>
+						<include content="MusicVideoSubMenuItem" condition="!Skin.HasSetting(mvslot1_show_none) + Library.HasContent(musicvideos)">
+							<param name="show_recent" value="Skin.HasSetting(mvslot1_show_recent) | !$EXP[HasMusicVideoSlot1]" />
+							<param name="show_unwatched" value="Skin.HasSetting(mvslot1_show_unwatched)" />
+							<param name="show_randomartists" value="Skin.HasSetting(mvslot1_show_randomartists)" />
+							<param name="show_randomvideos" value="Skin.HasSetting(mvslot1_show_randomvideos)"/>
+							<param name="show_studios" value="Skin.HasSetting(mvslot1_show_studios)"/>
+							<param name="list_id" value="16100" />
+						</include>
+						<include content="MusicVideoSubMenuItem" condition="!Skin.HasSetting(mvslot2_show_none) + Library.HasContent(musicvideos)">
+							<param name="show_recent" value="Skin.HasSetting(mvslot2_show_recent)" />
+							<param name="show_unwatched" value="Skin.HasSetting(mvslot2_show_unwatched) | !$EXP[HasMusicVideoSlot2]" />
+							<param name="show_randomartists" value="Skin.HasSetting(mvslot2_show_randomartists)" />
+							<param name="show_randomvideos" value="Skin.HasSetting(mvslot2_show_randomvideos)"/>
+							<param name="show_studios" value="Skin.HasSetting(mvslot2_show_studios)"/>
+							<param name="list_id" value="16200" />
+						</include>
+						<include content="MusicVideoSubMenuItem" condition="!Skin.HasSetting(mvslot3_show_none) + Library.HasContent(musicvideos)">
+							<param name="show_recent" value="Skin.HasSetting(mvslot3_show_recent)" />
+							<param name="show_unwatched" value="Skin.HasSetting(mvslot3_show_unwatched)" />
+							<param name="show_randomartists" value="Skin.HasSetting(mvslot3_show_randomartists) | !$EXP[HasMusicVideoSlot3]" />
+							<param name="show_randomvideos" value="Skin.HasSetting(mvslot3_show_randomvideos)"/>
+							<param name="show_studios" value="Skin.HasSetting(mvslot3_show_studios)"/>
+							<param name="list_id" value="16300" />
+						</include>
+						<include content="MusicVideoSubMenuItem" condition="!Skin.HasSetting(mvslot4_show_none) + Library.HasContent(musicvideos)">
+							<param name="show_recent" value="Skin.HasSetting(mvslot4_show_recent)" />
+							<param name="show_unwatched" value="Skin.HasSetting(mvslot4_show_unwatched)" />
+							<param name="show_randomartists" value="Skin.HasSetting(mvslot4_show_randomartists)" />
+							<param name="show_randomvideos" value="Skin.HasSetting(mvslot4_show_randomvideos) | !$EXP[HasMusicVideoSlot4]"/>
+							<param name="show_studios" value="Skin.HasSetting(mvslot4_show_studios)"/>
+							<param name="list_id" value="16400" />
+						</include>
+						<include content="MusicVideoSubMenuItem" condition="!Skin.HasSetting(mvslot5_show_none) + Library.HasContent(musicvideos)">
+							<param name="show_recent" value="Skin.HasSetting(mvslot5_show_recent)" />
+							<param name="show_unwatched" value="Skin.HasSetting(mvslot5_show_unwatched)" />
+							<param name="show_randomartists" value="Skin.HasSetting(mvslot5_show_randomartists)" />
+							<param name="show_randomvideos" value="Skin.HasSetting(mvslot5_show_randomvideos)"/>
+							<param name="show_studios" value="Skin.HasSetting(mvslot5_show_studios) | !$EXP[HasMusicVideoSlot5]"/>
+							<param name="list_id" value="16500" />
+						</include>
+					</control>
+					<include content="ImageWidget" condition="!Library.HasContent(musicvideos)">
+						<param name="text_label" value="$LOCALIZE[31104]" />
+						<param name="button_label" value="$LOCALIZE[31110]" />
+						<param name="button_onclick" value="ActivateWindow(videos,files,return)"/>
+						<param name="button_id" value="16800"/>
+						<param name="button2_onclick" value="ActivateWindow(skinsettings)"/> 
+					</include>
+					<include content="WidgetScrollbar" condition="Skin.HasSetting(touchmode)">
+						<param name="scrollbar_id" value="16010"/>
+					</include>
+				</control>
+				<control type="group" id="4000">
+					<visible>String.IsEqual(Container(9000).ListItem.Property(id),pictures)</visible>
+					<include content="Visible_Right_Delayed">
+						<param name="id" value="pictures"/>
+					</include>
+					<control type="grouplist" id="4001">
+						<include>WidgetGroupListCommon</include>
+						<include content="WidgetListCategories" condition="[Skin.HasSetting(picture_categories_standard) | !$EXP[HasPictureCategories]]">
+							<param name="content_path" value="sources://pictures/"/>
+							<param name="widget_header" value="$LOCALIZE[20094]"/>
+							<param name="widget_target" value="pictures"/>
+							<param name="list_id" value="4100"/>
+							<param name="icon_height" value="110"/>
+						</include>
+						<include condition="Skin.HasSetting(picture_categories_icons)" content="WidgetListCategoriesIcons">
+							<param name="content_path" value="sources://pictures/"/>
+							<param name="widget_header" value="$LOCALIZE[20094]"/>
+							<param name="widget_target" value="pictures"/>
+							<param name="list_id" value="4100"/>
+						</include>
+					</control>
+				</control>
+				<control type="group" id="17000">
+					<visible>String.IsEqual(Container(9000).ListItem.Property(id),games)</visible>
+					<include content="Visible_Right_Delayed">
+						<param name="id" value="games"/>
+					</include>
+					<control type="grouplist" id="17001">
+						<include>WidgetGroupListCommon</include>
+						<pagecontrol>17010</pagecontrol>
+						<include content="WidgetListSquare" condition="!Skin.HasSetting(no_games)">
+							<param name="content_path" value="addons://sources/game/"/>
+							<param name="widget_header" value="$LOCALIZE[35049]"/>
+							<param name="widget_target" value="games"/>
+							<param name="sortby" value="lastused"/>
+							<param name="sortorder" value="descending"/>
+							<param name="list_id" value="17200"/>
+							<param name="fallback_icon" value="DefaultAddonGame.png"/>
+						</include>
+					</control>
+					<include content="ImageWidget">
+						<param name="text_label" value="$LOCALIZE[31162]" />
+						<param name="button_label" value="$LOCALIZE[31144]" />
+						<param name="button_onclick" value="ActivateWindow(addonbrowser,addons://default_binary_addons_source/category.gameaddons,return)"/>
+						<param name="button_id" value="17100"/>
+						<param name="visible" value="!Integer.IsGreater(Container(17001).NumItems,0) + !Skin.HasSetting(no_games)"/>
+						<param name="button2_onclick" value="ActivateWindow(skinsettings)"/> 
+					</include>
+					<include content="WidgetScrollbar" condition="Skin.HasSetting(touchmode)">
+						<param name="scrollbar_id" value="17010"/>
+					</include>
+				</control>
+				<control type="group" id="21000">
+					<visible>String.IsEqual(Container(9000).ListItem.Property(id),disc)</visible>
+					<include content="Visible_Right_Delayed">
+						<param name="id" value="disc"/>
+					</include>
+					<include content="ImageWidget">
+						<param name="text_label" value="$INFO[System.DVDLabel]" />
+						<param name="button_label" value="$LOCALIZE[341]" />
+						<param name="button_onclick" value="PlayDisc"/>
+						<param name="button_id" value="21100"/>
+						<param name="visible" value="true"/>
+						<param name="button2_label" value="$LOCALIZE[13391]"/>
+						<param name="button2_onclick" value="EjectTray()"/>
+						<param name="button3_label" value="$LOCALIZE[600]"/>
+						<param name="button3_onclick" value="RipCD"/>
+						<param name="visible_3" value="System.HasMediaAudioCD"/>
+					</include>
+				</control>
 			</control>
 			<control type="group">
 				<depth>DepthContentPanel</depth>
