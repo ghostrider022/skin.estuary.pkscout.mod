@@ -1243,7 +1243,8 @@
 						</include>
 					</control> -->
 				
-
+					</control>
+				</control>
 			</control>
 			<include>BottomBar</include>
 			<control type="group">
