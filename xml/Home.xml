@@ -51,87 +51,46 @@
 					<control type="grouplist" id="5001">
 						<include>WidgetGroupListCommon</include>
 						<pagecontrol>5010</pagecontrol>
-						<include condition="[Skin.HasSetting(movie_categories_standard) | !$EXP[HasMovieCategories]] + Library.HasContent(movies)" content="WidgetListCategories">
-							<param name="content_path" value="library://video/movies/"/>
-							<param name="additional_movie_items" value="true"/>
-							<param name="widget_header" value="$LOCALIZE[31148]"/>
+						
+    <include name="MovieWidgets">
+						<include content="WidgetListPoster">
+							<param name="content_path" value="plugin://plugin.video.pov/?name=32476&amp;iconImage=player.png&amp;mode=build_movie_list&amp;action=in_progress_movies"/>
+							<param name="widget_header" value="In Progress Movies"/>
 							<param name="widget_target" value="videos"/>
-							<param name="list_id" value="5900"/>
+							<param name="list_id" value="19010"/>
 						</include>
-						<include condition="Skin.HasSetting(movie_categories_icons) + Library.HasContent(movies)" content="WidgetListCategoriesIcons">
-							<param name="content_path" value="library://video/movies/"/>
-							<param name="widget_header" value="$LOCALIZE[31148]"/>
+						<include content="WidgetListPoster">
+							<param name="content_path" value="plugin://plugin.video.pov/?name=32481&amp;iconImage=in_progress_tvshow.png&amp;mode=build_tvshow_list&amp;action=in_progress_tvshows"/>
+							<param name="widget_header" value="In Progress TV Shows"/>
 							<param name="widget_target" value="videos"/>
-							<param name="list_id" value="5900"/>
+							<param name="list_id" value="19011"/>
 						</include>
-						<include content="MovieSubMenuItem" condition="!Skin.HasSetting(movieslot1_show_none) + [Library.HasContent(movies) | $EXP[HasVideoAddonsInMovies]]">
-							<param name="show_inprogress" value="Skin.HasSetting(movieslot1_show_inprogress) | !$EXP[HasMovieSlot1]" />
-							<param name="show_recent" value="Skin.HasSetting(movieslot1_show_recent)" />
-							<param name="show_unwatched"  value="Skin.HasSetting(movieslot1_show_unwatched)" />
-							<param name="show_random" value="Skin.HasSetting(movieslot1_show_random)" />
-							<param name="show_genres" value="Skin.HasSetting(movieslot1_show_genres)" />
-							<param name="show_sets" value="Skin.HasSetting(movieslot1_show_sets)" />
-							<param name="show_videoaddons" value="Skin.HasSetting(movieslot1_show_videoaddons)" />
-							<param name="list_id" value="5100" />
+						<include content="WidgetListPoster">
+							<param name="content_path" value="plugin://plugin.video.pov/?name=Trending+Recent&apm;iconImage=trending.png&amp;mode=build_movie_list&amp;action=trakt_movies_trending_recent"/>
+							<param name="widget_header" value="Trending Movies"/>
+							<param name="widget_target" value="videos"/>
+							<param name="list_id" value="19012"/>
 						</include>
-						<include content="MovieSubMenuItem" condition="!Skin.HasSetting(movieslot2_show_none) + [Library.HasContent(movies) | $EXP[HasVideoAddonsInMovies]]">
-							<param name="show_inprogress" value="Skin.HasSetting(movieslot2_show_inprogress)" />
-							<param name="show_recent" value="Skin.HasSetting(movieslot2_show_recent) | !$EXP[HasMovieSlot2]" />
-							<param name="show_unwatched"  value="Skin.HasSetting(movieslot2_show_unwatched)" />
-							<param name="show_random" value="Skin.HasSetting(movieslot2_show_random)" />
-							<param name="show_genres" value="Skin.HasSetting(movieslot2_show_genres)" />
-							<param name="show_sets" value="Skin.HasSetting(movieslot2_show_sets)" />
-							<param name="show_videoaddons" value="Skin.HasSetting(movieslot2_show_videoaddons)" />
-							<param name="list_id" value="5200" />
+						<include content="WidgetListPoster">
+							<param name="content_path" value="plugin://plugin.video.pov/?name=Trending+Recent&amp;iconImage=trending.png&amp;mode=build_tvshow_list&amp;action=trakt_tv_trending_recent"/>
+							<param name="widget_header" value="Trending Shows"/>
+							<param name="widget_target" value="videos"/>
+							<param name="list_id" value="19013"/>
 						</include>
-						<include content="MovieSubMenuItem" condition="!Skin.HasSetting(movieslot3_show_none) + [Library.HasContent(movies) | $EXP[HasVideoAddonsInMovies]]">
-							<param name="show_inprogress" value="Skin.HasSetting(movieslot3_show_inprogress)" />
-							<param name="show_recent" value="Skin.HasSetting(movieslot3_show_recent)" />
-							<param name="show_unwatched"  value="Skin.HasSetting(movieslot3_show_unwatched) | !$EXP[HasMovieSlot3]" />
-							<param name="show_random" value="Skin.HasSetting(movieslot3_show_random)" />
-							<param name="show_genres" value="Skin.HasSetting(movieslot3_show_genres)" />
-							<param name="show_sets" value="Skin.HasSetting(movieslot3_show_sets)" />
-							<param name="show_videoaddons" value="Skin.HasSetting(movieslot3_show_videoaddons)" />
-							<param name="list_id" value="5300" />
+						<include content="WidgetListPoster">
+							<param name="content_path" value="plugin://plugin.video.pov/?mode=build_trakt_list&amp;user=vivek0511&amp;slug=latest-hindi-movies&amp;list_id=27712850&amp;list_type=liked_lists&amp;name=Latest+Hindi+movies"/>
+							<param name="widget_header" value="Hindi Movies"/>
+							<param name="widget_target" value="videos"/>
+							<param name="list_id" value="19014"/>
 						</include>
-						<include content="MovieSubMenuItem" condition="!Skin.HasSetting(movieslot4_show_none) + [Library.HasContent(movies) | $EXP[HasVideoAddonsInMovies]]">
-							<param name="show_inprogress" value="Skin.HasSetting(movieslot4_show_inprogress)" />
-							<param name="show_recent" value="Skin.HasSetting(movieslot4_show_recent)" />
-							<param name="show_unwatched"  value="Skin.HasSetting(movieslot4_show_unwatched)" />
-							<param name="show_random" value="Skin.HasSetting(movieslot4_show_random) | !$EXP[HasMovieSlot4]" />
-							<param name="show_genres" value="Skin.HasSetting(movieslot4_show_genres)" />
-							<param name="show_sets" value="Skin.HasSetting(movieslot4_show_sets)" />
-							<param name="show_videoaddons" value="Skin.HasSetting(movieslot4_show_videoaddons)" />
-							<param name="list_id" value="5400" />
-						</include>
-						<include content="MovieSubMenuItem" condition="!Skin.HasSetting(movieslot5_show_none) + [Library.HasContent(movies) | $EXP[HasVideoAddonsInMovies]]">
-							<param name="show_inprogress" value="Skin.HasSetting(movieslot5_show_inprogress)" />
-							<param name="show_recent" value="Skin.HasSetting(movieslot5_show_recent)" />
-							<param name="show_unwatched"  value="Skin.HasSetting(movieslot5_show_unwatched)" />
-							<param name="show_random" value="Skin.HasSetting(movieslot5_show_random)" />
-							<param name="show_genres" value="Skin.HasSetting(movieslot5_show_genres) | !$EXP[HasMovieSlot5]" />
-							<param name="show_sets" value="Skin.HasSetting(movieslot5_show_sets)" />
-							<param name="show_videoaddons" value="Skin.HasSetting(movieslot5_show_videoaddons)" />
-							<param name="list_id" value="5500" />
-						</include>
-						<include content="MovieSubMenuItem" condition="!Skin.HasSetting(movieslot6_show_none) + [Library.HasContent(movies) | $EXP[HasVideoAddonsInMovies]]">
-							<param name="show_inprogress" value="Skin.HasSetting(movieslot6_show_inprogress)" />
-							<param name="show_recent" value="Skin.HasSetting(movieslot6_show_recent)" />
-							<param name="show_unwatched"  value="Skin.HasSetting(movieslot6_show_unwatched)" />
-							<param name="show_random" value="Skin.HasSetting(movieslot6_show_random)" />
-							<param name="show_genres" value="Skin.HasSetting(movieslot6_show_genres)" />
-							<param name="show_sets" value="Skin.HasSetting(movieslot6_show_sets) | !$EXP[HasMovieSlot6]" />
-							<param name="show_videoaddons" value="Skin.HasSetting(movieslot6_show_videoaddons)" />
-							<param name="list_id" value="5600" />
-						</include>
-					</control>
-					<include content="ImageWidget" condition="!Library.HasContent(movies) + !Skin.HasSetting(movieaction_addons) + !$EXP[HasVideoAddonsInMovies]">
-						<param name="text_label" value="$LOCALIZE[31104]" />
-						<param name="button_label" value="$LOCALIZE[31110]" />
-						<param name="button_onclick" value="ActivateWindow(videos,files,return)"/>
-						<param name="button_id" value="5500"/>
-						<param name="button2_onclick" value="ActivateWindow(skinsettings)"/> 
-					</include>
+						<include content="WidgetListPoster">
+							<param name="content_path" value="plugin://plugin.video.pov/?mode=build_trakt_list&amp;user=dvivek&amp;slug=latest-hindi-series&amp;list_id=28719290&amp;list_type=liked_lists&amp;name=Latest+Hindi+Series"/>
+							<param name="widget_header" value="Hindi Shows"/>
+							<param name="widget_target" value="videos"/>
+							<param name="browse_mode" value="never"/>
+							<param name="list_id" value="19015"/>
+						</include>	
+    					</control>
 					<include content="WidgetScrollbar" condition="Skin.HasSetting(touchmode)">
 						<param name="scrollbar_id" value="5010"/>
 					</include>
@@ -1211,6 +1170,82 @@
 						<param name="visible" value="Player.HasMedia + Player.IsRemote + !Player.HasAudio" />
 					</include>
 				</control>
+				<control type="group">
+					<animation effect="slide" time="300" start="-492,0" end="0,0" tween="sine" easing="inout">VisibleChange</animation>
+					<width>750</width>
+					<visible>String.IsEqual(ListItem.DBtype,movie) | String.IsEqual(ListItem.DBtype,tvshow) | String.IsEqual(ListItem.DBtype,season) | String.IsEqual(ListItem.DBtype,episode)</visible>
+					<include>OpenClose_Left</include>
+				<!--<control type="image">
+						<left>30</left>
+						<top>50</top>
+						<!--<width>395</width>--
+						<height>183</height>
+						<texture background="true">$VAR[ClearlogoVar]</texture>
+						<aspectratio align="center">keep</aspectratio>
+					</control>-->
+					<control type="textbox">
+						<top>65</top>
+						<left>30</left>
+						<width>1030</width>
+						<aligny>left</aligny>
+						<height>110</height>
+						<font>wm70</font>
+						<label>$INFO[ListItem.Label]</label>
+						<!--<visible>String.IsEmpty(ListItem.Art(clearlogo))</visible>-->
+					</control>
+					<control type="textbox">
+						<left>30</left>
+						<top>169</top>
+						<width>910</width>
+						<height>255</height>
+						<label>$VAR[InfoPanelPlot]</label>
+						<autoscroll delay="10000" time="3000" repeat="10000">Skin.HasSetting(autoscroll)</autoscroll>
+					</control>
+					<control type="textbox">
+						<left>30</left>
+						<top>323</top>
+						<width>910</width>
+						<height>255</height>
+						<label>$VAR[InfoPanelPlotEpisode]</label>
+						<autoscroll delay="10000" time="3000" repeat="10000">Skin.HasSetting(autoscroll)</autoscroll>
+					</control>
+					<control type="textbox">
+						<left>30</left>
+						<top>213</top>
+						<width>410</width>
+						<aligny>center</aligny>
+						<height>110</height>
+						<bottom>60</bottom>
+						<font>font36_title</font>
+						<label>Season $INFO[ListItem.Season], Episode $INFO[ListItem.Episode]</label>
+						<visible>String.IsEqual(ListItem.DbType,episode)</visible>
+					</control>
+					<control type="textbox">
+						<left>30</left>
+						<top>467</top>
+						<width>530</width>
+						<height>413</height>
+						<align>center</align>
+						<aligny>center</aligny>
+						<font>font27</font>
+						<textcolor>80FFFFFF</textcolor>
+						<label>$LOCALIZE[19055]</label>
+						<visible>String.IsEmpty(Listitem.Plot) + String.IsEmpty(Listitem.Tagline) + !ListItem.IsCollection + !ListItem.IsParentFolder</visible>
+					</control>
+					<!-- <control type="group">
+						<left>20</left>
+						<top>245</top>
+						<visible>ListItem.IsCollection + String.IsEmpty(ListItem.Plot)</visible>
+						<include content="InfoList">
+							<param name="bottom" value="108" />
+							<param name="width" value="540" />
+							<param name="sortby" value="year" />
+							<param name="sortorder" value="ascending" />
+							<param name="font" value="font13" />
+						</include>
+					</control> -->
+				</control>
+
 			</control>
 			<include>BottomBar</include>
 			<control type="group">
