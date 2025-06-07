@@ -55,38 +55,38 @@
 							<param name="content_path" value="plugin://plugin.video.pov/?name=32476&amp;iconImage=player.png&amp;mode=build_movie_list&amp;action=in_progress_movies"/>
 							<param name="widget_header" value="In Progress Movies"/>
 							<param name="widget_target" value="videos"/>
-							<param name="list_id" value="19010"/>
+							<param name="list_id" value="5100"/>
 						</include>
 						<include content="WidgetListPoster">
 							<param name="content_path" value="plugin://plugin.video.pov/?name=32481&amp;iconImage=in_progress_tvshow.png&amp;mode=build_tvshow_list&amp;action=in_progress_tvshows"/>
 							<param name="widget_header" value="In Progress TV Shows"/>
 							<param name="widget_target" value="videos"/>
-							<param name="list_id" value="19011"/>
+							<param name="list_id" value="5200"/>
 						</include>
 						<include content="WidgetListPoster">
 							<param name="content_path" value="plugin://plugin.video.pov/?name=Trending+Recent&apm;iconImage=trending.png&amp;mode=build_movie_list&amp;action=trakt_movies_trending_recent"/>
 							<param name="widget_header" value="Trending Movies"/>
 							<param name="widget_target" value="videos"/>
-							<param name="list_id" value="19012"/>
+							<param name="list_id" value="5300"/>
 						</include>
 						<include content="WidgetListPoster">
 							<param name="content_path" value="plugin://plugin.video.pov/?name=Trending+Recent&amp;iconImage=trending.png&amp;mode=build_tvshow_list&amp;action=trakt_tv_trending_recent"/>
 							<param name="widget_header" value="Trending Shows"/>
 							<param name="widget_target" value="videos"/>
-							<param name="list_id" value="19013"/>
+							<param name="list_id" value="5400"/>
 						</include>
 						<include content="WidgetListPoster">
 							<param name="content_path" value="plugin://plugin.video.pov/?mode=build_trakt_list&amp;user=vivek0511&amp;slug=latest-hindi-movies&amp;list_id=27712850&amp;list_type=liked_lists&amp;name=Latest+Hindi+movies"/>
 							<param name="widget_header" value="Hindi Movies"/>
 							<param name="widget_target" value="videos"/>
-							<param name="list_id" value="19014"/>
+							<param name="list_id" value="5500"/>
 						</include>
 						<include content="WidgetListPoster">
 							<param name="content_path" value="plugin://plugin.video.pov/?mode=build_trakt_list&amp;user=dvivek&amp;slug=latest-hindi-series&amp;list_id=28719290&amp;list_type=liked_lists&amp;name=Latest+Hindi+Series"/>
 							<param name="widget_header" value="Hindi Shows"/>
 							<param name="widget_target" value="videos"/>
 							<param name="browse_mode" value="never"/>
-							<param name="list_id" value="19015"/>
+							<param name="list_id" value="5600"/>
 						</include>	
     					</control>
 					<include content="WidgetScrollbar" condition="Skin.HasSetting(touchmode)">
@@ -1242,8 +1242,6 @@
 							<param name="font" value="font13" />
 						</include>
 					</control> -->
-				
-					</control>
 				</control>
 			</control>
 			<include>BottomBar</include>
