@@ -105,7 +105,7 @@
 					<include content="WidgetScrollbar" condition="Skin.HasSetting(touchmode)">
 						<param name="scrollbar_id" value="5010"/>
 					</include>
-				</control>
+				
 				
 			</control>
 			<control type="group">
