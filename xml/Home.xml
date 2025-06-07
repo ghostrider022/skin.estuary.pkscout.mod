@@ -1168,6 +1168,7 @@
 						<param name="visible" value="Player.HasMedia + Player.IsRemote + !Player.HasAudio" />
 					</include>
 				</control>
+			</control>
 				<control type="group">
 					<animation effect="slide" time="300" start="-492,0" end="0,0" tween="sine" easing="inout">VisibleChange</animation>
 					<width>750</width>
@@ -1243,7 +1244,7 @@
 						</include>
 					</control> -->
 				</control>
-			</control>
+			
 			<include>BottomBar</include>
 			<control type="group">
 				<depth>DepthBars</depth>
