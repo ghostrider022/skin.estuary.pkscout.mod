@@ -51,8 +51,6 @@
 					<control type="grouplist" id="5001">
 						<include>WidgetGroupListCommon</include>
 						<pagecontrol>5010</pagecontrol>
-						
-    <include name="MovieWidgets">
 						<include content="WidgetListPoster">
 							<param name="content_path" value="plugin://plugin.video.pov/?name=32476&amp;iconImage=player.png&amp;mode=build_movie_list&amp;action=in_progress_movies"/>
 							<param name="widget_header" value="In Progress Movies"/>
