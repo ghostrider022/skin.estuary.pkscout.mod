@@ -1242,7 +1242,7 @@
 							<param name="font" value="font13" />
 						</include>
 					</control> -->
-				</control>
+				
 
 			</control>
 			<include>BottomBar</include>
